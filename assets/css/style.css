@@ -1,0 +1,44 @@
+.jumbotron {
+    		background-image: url("../images/bkg4.jpg");
+    		background-repeat: no-repeat;
+    		background-size: cover;
+            border: none;
+            margin-bottom: -60px;
+            color: gray;
+            text-shadow: -1px 1px white, 0 1px white; 
+    	}
+
+footer {
+    		position: fixed;
+    		bottom: 0;
+    		text-align: center;
+            width: 100%;
+            color: gray;
+            font-size: 75%;
+            background-color: black;
+            padding: 5px;
+        }
+
+.bkg {
+	background-image: url("../images/back.jpg");
+	background-size: cover;
+	height: 500px;
+	margin-top: -30px;
+}   
+
+.box {
+	background-color: black;
+	width: 75%;
+	height: 500px;
+	color: gray;
+}    
+
+.game {
+	margin-top: 230px;
+	margin-left: 410px;
+	margin-right: auto;
+}
+
+.gameOver {
+	margin-left: 300px;
+}

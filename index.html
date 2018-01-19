@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+	<meta charset="UTF-8">
+	<title> Trivia Game </title>
+
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style>
+    	* {
+		padding: 0;
+		margin; 0;
+		}
+    </style>
+
+</head>
+<body>
+	<div class="jumbotron jumbotron-fluid"> <!-- //GAME NAME -->
+		<div class="container">
+  			  <h1 class="display-3 text-center"> OuterSpace Trivia </h1>
+ 		</div>
+	</div>	
+
+	<div class="container-fluid bkg"> 
+		<div class="row">
+
+		
+			<div class="container-fluid box"> <!-- // here is where everything is gonna go -->
+				<div class="row justify-content-center">
+
+					<button type="button" class="btn btn-outline-secondary startButton game"> Start game! </button>
+
+
+
+				<div class="container-fluid">     <!--  //timer container -->
+					<div class="row justify-content-center">
+					
+						<p id="questionTimer"></p>
+
+					</div>
+				</div>		
+
+
+
+				<div class="container-fluid"> <!-- // container for <<questionPop>> set of tags -->
+					<div class="row justify-content-center">
+
+						<div id="questionPop" class="col-12">
+
+
+							<div class="container-fluid">     <!--  //timer container -->
+								<div class="row justify-content-center">
+					
+										<p id="questionTimer"></p>
+
+								</div>
+							</div>		
+
+
+							<div class="container-fluid">
+								<div class="row">
+									<p id="question"></p>
+								</div>	
+							</div>
+
+								<button class="btn btn-outline-secondary button col-12" id="b1"></button>
+								<button class="btn btn-outline-secondary button col-12" id="b2"></button>
+								<button class="btn btn-outline-secondary button col-12" id="b3"></button>
+								<button class="btn btn-outline-secondary button col-12" id="b4"></button>
+
+						</div>
+					</div>
+				</div> <!-- //end container questionPop -->
+
+				
+
+				<div class="container-fluid"> <!-- // container for <<result>> set of tags -->
+					<div class="row justify-content-center">
+
+
+						<div id="result" class="col-12">
+
+								<p id="displayMessage"></p>
+
+								<p id="displayPic" class="img img-fluid"></p>
+
+						</div>
+
+					</div>
+				</div>
+
+
+				<div class="container-fluid"> <!-- // container for <<gameOver>> set of tags -->
+					<div class="row justify-content-center">
+
+						<div id="gameOver" class="col-12">
+
+						<p> Game Over! Here is how you did: </p>
+
+						<p id="correctAnswers"></p>
+						<p id="incorrectAnswers"></p>
+						<p id="unansweredQuestions"></p>
+
+						<button class="btn btn-outline-secondary startButton tryAgain"> Try again? </button>
+
+					</div>
+				</div>		
+
+				</div>  <!-- //close first row -->
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	<footer>
+		<div class="container-fluid ">
+			<div class="row justify-content-center"> 
+				<div class="col-5 index">
+							<h4><strong>Copyright &copy; Roxana Milea</strong></h4>
+				</div>		
+			</div>
+		</div>
+	</footer>
+
+
+</body>
+</html>
