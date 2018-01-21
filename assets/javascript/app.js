@@ -8,8 +8,10 @@ $(document).ready( function() {
 			answer3: "A Black Hole",
 			answer4: "Love",
 			correctAnswer: "A Black Hole",
-			correctPic: "<img src='assets/images/avocado.jpg' alt='Black Hole Image Winner' >",
-			incorrectPic: "<img src='assets/images/avocadoboo.jpg' alt='Black Hole Loser GIF' >",
+			correctPic: "assets/images/blackhole1.jpg",
+			correctPicAlt: "Black Hole Image Winner",
+			incorrectPic: "assets/images/blackhole2.jpg",
+			incorrectPicAlt: "Black Hole Loser GIF"
 		},
 
 		{
@@ -19,8 +21,10 @@ $(document).ready( function() {
 			answer3: "As Many As He Pleases",
 			answer4: "67 Moons",
 			correctAnswer: "67 Moons",
-			correctPic: "<img src='assets/images/antarctica.jpg' alt='Jupiter Winner' > ",
-			incorrectPic: "<img src='assets/images/antarcticaboo.jpg' alt='Jupiter Loser' >",
+			correctPic: "assets/images/jupitermoons1.png",
+			correctPicAlt: "Jupiter Winner",
+			incorrectPic: "assets/images/jupitermoons2.jpg",
+			incorrectPicAlt: "Jupiter Loser"
 		},
 
 		{
@@ -30,8 +34,10 @@ $(document).ready( function() {
 			answer3: "New England in Winter",
 			answer4: "The Grasshopper Nebula",
 			correctAnswer: "The Boomerang Nebula",
-			correctPic: "<img src='assets/images/avocado.jpg' alt='The Boomerang Image Winner' >",
-			incorrectPic: "<img src='assets/images/avocadoboo.jpg' alt='The Boomerang Loser GIF' >",
+			correctPic: "assets/images/boomerangnebula3.jpg",
+			correctPicAlt: "The Boomerang Image Winner",
+			incorrectPic: "assets/images/boomerangnebula4.jpg",
+			incorrectPicAlt: "The Boomerang Loser Image"
 		},	
 
 		{
@@ -41,8 +47,10 @@ $(document).ready( function() {
 			answer3: "Red Dwarf Stars",
 			answer4: "Habemus Luce Stars",
 			correctAnswer: "Red Dwarf Stars",
-			correctPic: "<img src='assets/images/avocado.jpg' alt='Red Dwarf Image Winner' >",
-			incorrectPic: "<img src='assets/images/avocadoboo.jpg' alt='Red Dwarf Loser GIF' >",
+			correctPic: "assets/images/reddwarf1.jpg",
+			correctPicAlt: "Red Dwarf Image Winner",
+			incorrectPic: "assets/images/reddwarf2.jpg",
+			incorrectPicAlt: "Red Dwarf Loser GIF"
 		},	
 
 		{
@@ -52,8 +60,10 @@ $(document).ready( function() {
 			answer3: "M77",
 			answer4: "Beyonce",
 			correctAnswer: "Proxima Centauri",
-			correctPic: "<img src='assets/images/avocado.jpg' alt='Proxima Centauri Image Winner' >",
-			incorrectPic: "<img src='assets/images/avocadoboo.jpg' alt='Proxima Centauri Loser GIF' >",
+			correctPic: "assets/images/proxima1.png",
+			correctPicAlt: "Proxima Centauri Image Winner",
+			incorrectPic: "assets/images/proxima2.png",
+			incorrectPicAlt: "Proxima Centauri Loser Image"
 		}	
 
 	];
@@ -64,13 +74,35 @@ $(document).ready( function() {
 	var timeVar;
 	var counter;
 	var timer;
-	var answered=0;
 
 	$("#questionPop").hide();
 	$("#result").hide();
 	$("#gameOver").hide();
 
 // function declarations:
+
+	function countdown() {
+	
+			timeVar=setInterval(timeHop, 1000);
+	}
+
+
+	function timeHop() {
+
+			if (timer == 0) {
+				clearInterval(timeVar);
+				unanswered(counter);
+				setTimeout(nextQuestion, 3000);
+			}
+
+			 else if (timer > 0) {
+			 	timer--;
+			 }
+
+			$("#questionTimer").text("Time remaining: " + timer);
+			$(".timerbox").show();
+	}	
+
 
 	function startGame() {
 
@@ -82,7 +114,8 @@ $(document).ready( function() {
 			$("#questionPop").show();
 			
 			timer=31;
-			yourTimeisUp();
+
+			countdown();
 
 			display(0);
 	}	
@@ -90,7 +123,7 @@ $(document).ready( function() {
 
 	function display(index) {
 
-			$("#question").html(arrOfObjects[index].question);
+			$("#question").text(arrOfObjects[index].question);
 			$("#b1").html(arrOfObjects[index].answer1);
 			$("#b2").html(arrOfObjects[index].answer2);
 			$("#b3").html(arrOfObjects[index].answer3);
@@ -114,7 +147,7 @@ $(document).ready( function() {
 
 			else {
 					timer=31;
-					yourTimeisUp()
+					countdown()
 					
 					display(counter);
 					
@@ -128,8 +161,8 @@ $(document).ready( function() {
 			$("#questionTimer").empty(); //!!!!!!! vs hide()
 			$("#result").show();
 
-			$("#displayMessage").html("Your answer is correct");
-			$("#displayPic").html(arrOfObjects[index].correctPic);
+			$("#displayMessage").text("Your answer is correct");
+			$("#displayPic").attr("src", arrOfObjects[index].correctPic).attr("alt", arrOfObjects[index].correctPicAlt);
 			correctScore++;
 
 	}
@@ -142,8 +175,8 @@ $(document).ready( function() {
 			$("#questionTimer").empty();
 			$("#result").show();
 
-			$("#displayMessage").html("Your answer is incorrect! The correct answer was: " + arrOfObjects[index].correctAnswer);
-			$("#displayPic").html(arrOfObjects[index].incorrectPic);
+			$("#displayMessage").text("Your answer is incorrect! The correct answer is: " + arrOfObjects[index].correctAnswer);
+			$("#displayPic").attr("src", arrOfObjects[index].incorrectPic).attr("alt", arrOfObjects[index].incorrectPicAlt);
 			incorrectScore++;
 	}
 
@@ -156,8 +189,8 @@ $(document).ready( function() {
 			$("#questionTimer").empty();
 			$("#result").show();
 
-			$("#displayMessage").html("Oops! You ran out of time! Wake up! The correct answer was: " + arrOfObjects[index].correctAnswer);
-
+			$("#displayMessage").text("Oops! You ran out of time! Wake up! The correct answer is: " + arrOfObjects[index].correctAnswer);
+			$("#displayPic").attr("src", arrOfObjects[index].incorrectPic).attr("alt", arrOfObjects[index].incorrectPicAlt);
 	}
 
 
@@ -175,45 +208,13 @@ $(document).ready( function() {
 
 	}
 
-	
-	function yourTimeisUp () {
-	
-			timeVar=setInterval(timeHop, 1000);
-	}
-
-
-	function timeHop() {
-
-			if (timer == 0) {
-				clearInterval(timeVar);
-				unanswered(counter);
-				setTimeout(nextQuestion, 3000);
-			}
-
-			 else if (timer > 0) {
-			 	timer--;
-			 }
-
-			$("#questionTimer").html("Time remaining: " + timer);
-	}	
-
-
-	// function emptyElements() {
-	// 		$("#question").empty();
-	// 		$("#b1").empty();
-	// 		$("#b2").empty();
-	// 		$("#b3").empty();
-	// 		$("#b4").empty();
-	// }
-
-
 
 // Start Game
 
 		$(".startButton").on("click", function(){
 			$(this).hide();
 			$("#gameOver").hide();
-			$(".questionPop").show();
+			$("#questionPop").show();
 			$("#questionTimer").show();
 			startGame();
 
@@ -223,8 +224,8 @@ $(document).ready( function() {
 
 		$(".button").click(function() {
 
-				answered=1;
 				clearInterval(timeVar);
+
 
 				if ( $(this).html() == arrOfObjects[counter].correctAnswer ) {
 
