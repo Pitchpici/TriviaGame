@@ -115,6 +115,8 @@ $(document).ready( function() {
 			
 			timer=31;
 
+			timeHop();
+
 			countdown();
 
 			display(0);
@@ -147,6 +149,7 @@ $(document).ready( function() {
 
 			else {
 					timer=31;
+					timeHop();
 					countdown()
 					
 					display(counter);
