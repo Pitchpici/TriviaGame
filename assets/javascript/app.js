@@ -35,7 +35,7 @@ $(document).ready( function() {
 			answer4: "The Grasshopper Nebula",
 			correctAnswer: "The Boomerang Nebula",
 			correctPic: "assets/images/boomerangnebula3.jpg",
-			correctPicAlt: "The Boomerang Image Winner",
+			corrgamectPicAlt: "The Boomerang Image Winner",
 			incorrectPic: "assets/images/boomerangnebula4.jpg",
 			incorrectPicAlt: "The Boomerang Loser Image"
 		},	
@@ -208,6 +208,7 @@ $(document).ready( function() {
 					$("#unansweredQuestions").html("Unanswered questions:" + unansweredScore);
 			
 			$("#gameOver").show();
+			$(".tryAgain").show()
 
 	}
 

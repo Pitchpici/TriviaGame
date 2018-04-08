@@ -1,1 +1,20 @@
 # TriviaGame
+
+
+## Getting Started
+
+Created during Week 5 of UNH Coding Bootcamp. The challenge was to create a timed trivia game. Only 20 seconds were alotted to each question. After all of the questions were finished, the final scoreboard of how well you did would appear
+
+## Prerequisites
+- Bootstrap: visit http://getbootstrap.com/getting-started/ for the CDN and link in html
+- jQuery: visit http://code.jquery.com/ and link in html
+
+## Built With
+
+* Sublime Text
+* Bootstrap
+
+
+## Authors
+
+Roxana Milea
